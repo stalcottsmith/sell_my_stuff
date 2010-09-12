@@ -1,7 +1,10 @@
 class Item < ActiveRecord::Base
   
   has_attached_file :pic, :styles => { :medium => "800x800>", :thumb => "50x50>" },
-                          :storage => (Rails.env.production? ? :s3 : :filesystem)
+                          :storage => (Rails.env.production? ? :s3 : :filesystem),
+                          :s3_credentials => {:access_key_id     => ENV['S3_KEY'],
+                                              :secret_access_key => ENV['S3_SECRET'],
+                                              :bucket => 'sell_my_stuff'}
 
   belongs_to :bidder
   
