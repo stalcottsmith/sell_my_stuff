@@ -1,3 +1,6 @@
+
+require 'aws/s3'
+
 SellMyStuff::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -46,4 +49,10 @@ SellMyStuff::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  AWS::S3::Base.establish_connection!(
+    :access_key_id     => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
+  )
+  
 end
