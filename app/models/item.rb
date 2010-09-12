@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   
   has_attached_file :pic, :styles => { :medium => "800x800>", :thumb => "50x50>" },
-                          :storage => (Rails.production? ? :s3 : nil)
+                          :storage => (Rails.env.production? ? :s3 : nil)
 
   belongs_to :bidder
   
