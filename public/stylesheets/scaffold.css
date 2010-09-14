@@ -17,6 +17,17 @@ pre {
   position:absolute;
 }
 
+#description .form {
+	display: none;
+}
+
+#description {
+	text-align: left;
+	font-weight: normal;
+	margin-left: 2em;
+	margin-bottom: 1em;
+}
+
 #new-item {
 	margin-top: 7em;
   padding: 1em;

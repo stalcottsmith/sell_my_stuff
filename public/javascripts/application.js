@@ -19,4 +19,12 @@ $(document).ready(function(){
 			$(this).hide(500);
 		});
 	});
+	
+	
+	$("#description .text").click(function() {
+		$('#description .form').show(250, function() {
+			$('#description .text').hide(250);
+		});
+	});
+	
 });

@@ -1,7 +1,11 @@
 SellMyStuff::Application.routes.draw do
+  get "settings/update"
+
   match '/login' => "authorization#login", :as => :login
 
   match '/logout' => "authorization#logout", :as => :logout
+
+  resource :setting, :only => :update
 
   resources :items
 
