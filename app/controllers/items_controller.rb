@@ -12,33 +12,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # GET /items/1
-  # GET /items/1.xml
-  # def show
-  #    @item = Item.find(params[:id])
-  # 
-  #    respond_to do |format|
-  #      format.html # show.html.erb
-  #      format.xml  { render :xml => @item }
-  #    end
-  #  end
- 
-  # GET /items/new
-  # GET /items/new.xml
-  def new
-    @item = Item.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @item }
-    end
-  end
-
-  # GET /items/1/edit
-  def edit
-    @item = Item.find(params[:id])
-  end
-
   # POST /items
   # POST /items.xml
   def create
@@ -65,7 +38,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to(items_path, :notice => 'Item was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to(items_path, :notice => 'Item could not be updated.') }
         format.xml  { render :xml => @item.errors, :status => :unprocessable_entity }
       end
     end

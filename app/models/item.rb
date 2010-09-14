@@ -11,6 +11,9 @@ class Item < ActiveRecord::Base
   
   accepts_nested_attributes_for :bidder
   
+  validates_numericality_of :offer
+  validates_associated :bidder
+  
   def offer=(n)
     write_attribute :offer, n ? (n.to_f*100.0).to_i : n
   end
