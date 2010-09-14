@@ -20,6 +20,10 @@ $(document).ready(function(){
 		});
 	});
 	
+	$("form.edit_item").submit(function() {
+		return confirm("Are you sure?");
+	});
+	
 	
 	$("#description .text").click(function() {
 		$('#description .form').show(250, function() {
