@@ -1,6 +1,6 @@
 class CreateBids < ActiveRecord::Migration
   def self.up
-    create_table :bids do |t|
+    create_table :bids, :force => true do |t|
       t.integer :item_id
       t.integer :bidder_id
       t.integer :offer
