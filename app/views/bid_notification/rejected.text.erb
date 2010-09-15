@@ -1,6 +1,6 @@
 Dear <%= @bid.bidder.name %>,
 
-Your bid of <%= number_to_currency @bid.offer %> was REJECTED for:
+Your bid of <%= number_to_currency (@bid.offer/100.0) %> was REJECTED for:
 
 <%= @bid.item.name %>
 

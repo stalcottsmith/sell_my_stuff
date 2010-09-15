@@ -1,6 +1,6 @@
 Dear <%= @bid.bidder.name %>,
 
-Your bid of <%= number_to_currency @bid.offer %> was ACCEPTED for:
+Your bid of <%= number_to_currency (@bid.offer/100.0) %> was ACCEPTED for:
 
 <%= @bid.item.name %>
 
