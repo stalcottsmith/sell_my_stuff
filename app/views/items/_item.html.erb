@@ -28,7 +28,7 @@
   <% end %>
   <% unless item.bidding_closed? %>
     <% @bid.offer = nil %>
-    <% @bid.bidder = session[:bidder] %>
+    <% @bid.bidder = session[:bidder] || Bidder.new %>
     <%= render :partial => "bid_form", :locals  => {:item  => item}  %>
   <% end %>
   <% if item.bids.any? %></div><% end %>
