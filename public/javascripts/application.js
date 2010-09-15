@@ -24,6 +24,11 @@ $(document).ready(function(){
 		return confirm("Are you sure?");
 	});
 	
+	$(".accept-reject input").change(function() {
+		$(this).siblings("input:checkbox:checked").val(0);
+		$(this).parents('form').submit();
+	});
+	
 	
 	$("#description .text").click(function() {
 		$('#description .form').show(250, function() {

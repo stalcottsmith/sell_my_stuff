@@ -1,4 +1,6 @@
 SellMyStuff::Application.routes.draw do
+  resources :bids
+
   get "settings/update"
 
   match '/login' => "authorization#login", :as => :login

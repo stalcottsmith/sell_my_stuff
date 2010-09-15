@@ -19,4 +19,13 @@ SellMyStuff::Application.configure do
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
+  
+  ActionMailer::Base.smtp_settings = {
+   :address => "smtp.gmail.com",
+   :port => 587,
+   :domain => ENV['MAILDOMAIN'],
+   :authentication => :plain,
+   :user_name => ENV['MAILUSER'],
+   :password => ENV['MAILPASS']
+  }
 end

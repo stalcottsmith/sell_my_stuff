@@ -1,4 +1,4 @@
-<%= form_for(item) do |f| %>
+<%= form_for(@bid) do |f| %>
   <% if item.errors.any? %>
     <div>
       <div id="error_explanation">
@@ -12,7 +12,6 @@
       </div>    
   <% end %>
   <div class="grid_2 text">
-    <% item.bidder = Bidder.new %>
     <%= f.fields_for :bidder do |bidder| %>
     <div class="hidden-elements">
       <%= bidder.label :name %><br>
@@ -27,6 +26,7 @@
     <% end %>
   </div>
   <div class="grid_3 text">
+    <%= hidden_field :bid, :item_id, :value => item.id %>
     $<%= f.text_field :offer, :size => 8, :class => 'item_offer' %><%= f.submit "Bid" %>
   </div>
   <% if item.errors.any? %>

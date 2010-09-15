@@ -3,8 +3,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.xml
   def index
-    @items = Item.all
+    @items = Item.all(:order => "updated_at DESC")
     @item = Item.new
+    @bid = Bid.new(:bidder => (session[:bidder] || Bidder.new))
 
     respond_to do |format|
       format.html # index.html.erb

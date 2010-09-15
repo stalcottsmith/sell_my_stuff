@@ -46,5 +46,12 @@ SellMyStuff::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
-    
+  ActionMailer::Base.smtp_settings = {
+   :address => "smtp.gmail.com",
+   :port => 587,
+   :domain => ENV['MAILDOMAIN'],
+   :authentication => :plain,
+   :user_name => ENV['MAILUSER'],
+   :password => ENV['MAILPASS']
+  }
 end

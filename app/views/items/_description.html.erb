@@ -1,10 +1,10 @@
 <div id="description">
 <% if authorized? %>
   <div class="form">
-  <%- form_for @setting do |f| -%>
+  <%= form_for @setting do |f| %>
   <%= f.text_area :description, :size => "80x4" %>
   <%= f.submit 'Update' %>
-  <%- end -%>
+  <% end %>
   </div>
 <% end %>
   <div class="text">

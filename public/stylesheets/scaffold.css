@@ -11,6 +11,18 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
+
+.accepted {
+	color: green;
+	font-weight: bold;
+}
+.rejected {
+	color: red;
+	text-decoration: line-through;
+}
+.in-play {
+	font-style: italic;
+}
 #login-area {
   top:5px;
   right:5px;
