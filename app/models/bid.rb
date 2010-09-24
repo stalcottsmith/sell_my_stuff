@@ -9,7 +9,7 @@ class Bid < ActiveRecord::Base
   attr :accepted, :rejected
   
   def accepted=(accepted)
-    if accepted and !accepted.eql?('0')
+    if accepted && !['0', 0].include?(accepted)
       self.accepted_at = Time.now
     else
       self.accepted_at = nil
@@ -21,7 +21,7 @@ class Bid < ActiveRecord::Base
   end
   
   def rejected=(rejected)
-    if rejected and !rejected.eql?('0')
+    if rejected && !['0', 0].include?(rejected)
       self.rejected_at = Time.now 
     else
       self.rejected_at = nil
@@ -42,9 +42,9 @@ class Bid < ActiveRecord::Base
   
   def notify_bidder_of_status
     case
-    when accepted_at 
+    when accepted?
       BidNotification.deliver_accepted(self)
-    when rejected_at
+    when rejected?
       BidNotification.deliver_rejected(self)
     end
   end

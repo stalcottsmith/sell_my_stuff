@@ -11,7 +11,7 @@
       <% @bid = bid %>
       <tr>
         <td class="<%= bid_class(bid) %>"><%= bid.bidder.name %></td>
-        <td class="currency <%= bid_class(bid) %>"><%= number_to_currency (bid.offer/100.0) %></td>
+        <td class="currency <%= bid_class(bid) %>"><%= number_to_currency (bid.offer) %></td>
         <% if authorized? %>
         <td>
           <%= form_for(@bid, :html => {:class => 'accept-reject'}) do |f| %>
